@@ -7,7 +7,7 @@
     tools:context=".MainActivity4">
 
     <EditText
-        android:id="@+id/editTextTextItemName"
+        android:id="@+id/ed_itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -28,6 +28,7 @@
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
+        android:hint="請輸入消費金額"
         app:layout_constraintBottom_toTopOf="@+id/textView１"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -40,7 +41,7 @@
         android:layout_marginTop="31dp"
         android:text="請輸入金額"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextItemName" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_itemName" />
 
     <TextView
         android:id="@+id/textView１"
