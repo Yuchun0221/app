@@ -25,9 +25,10 @@
         android:id="@+id/btn_typeone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="186dp"
         android:text="公庫分帳型"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView１" />
 
@@ -35,9 +36,10 @@
         android:id="@+id/btn_typetwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="44dp"
         android:text="各付各結算型"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_typeone" />
 
