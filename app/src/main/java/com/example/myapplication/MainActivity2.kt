@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
+import android.widget.RadioGroup
 
 class MainActivity2 : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -13,6 +14,16 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         val btn_commit = findViewById<Button>(R.id.btn_commit)
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+        val radioButton1 = findViewById<RadioButton>(R.id.radioButton1)
+        val radioButton2 = findViewById<RadioButton>(R.id.radioButton2)
+        val radioButton3 = findViewById<RadioButton>(R.id.radioButton3)
+        val radioButton4 = findViewById<RadioButton>(R.id.radioButton4)
+        val radioGroup1 = findViewById<RadioGroup>(R.id.radioGroup1)
+        val radioButton5 = findViewById<RadioButton>(R.id.radioButton5)
+        val radioButton6 = findViewById<RadioButton>(R.id.radioButton6)
+        val radioButton7 = findViewById<RadioButton>(R.id.radioButton7)
+
 
     }
 }
