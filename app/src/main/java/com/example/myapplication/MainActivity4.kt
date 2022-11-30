@@ -13,5 +13,6 @@ class MainActivity4 : AppCompatActivity() {
         val ed_itemName = findViewById<EditText>(R.id.ed_itemName)
         val ed_pay = findViewById<EditText>(R.id.ed_pay)
         val textView3 = findViewById<TextView>(R.id.textView3)
+        val textView4 = findViewById<TextView>(R.id.textView4)
     }
 }
