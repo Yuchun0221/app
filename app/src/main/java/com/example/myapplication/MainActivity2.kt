@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -24,6 +25,8 @@ class MainActivity2 : AppCompatActivity() {
         val radioButton6 = findViewById<RadioButton>(R.id.radioButton6)
         val radioButton7 = findViewById<RadioButton>(R.id.radioButton7)
 
-
+        btn_commit.setOnClickListener(){
+            startActivity(Intent(this, MainActivity3::class.java))
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,5 +16,9 @@ class MainActivity3 : AppCompatActivity() {
         val ed_peoplenum = findViewById<EditText>(R.id.ed_peoplenum)
         val btn_commit1 = findViewById<Button>(R.id.btn_commit1)
         val ed_moneynum = findViewById<EditText>(R.id.ed_moneynum)
+
+        btn_commit1.setOnClickListener(){
+            startActivity(Intent(this, MainActivity4::class.java))
+        }
     }
 }
