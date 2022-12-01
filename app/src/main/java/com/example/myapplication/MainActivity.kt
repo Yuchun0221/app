@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,5 +14,8 @@ class MainActivity : AppCompatActivity() {
         val btn_typeone = findViewById<Button>(R.id.btn_typeone)
         val btn_typetwo = findViewById<Button>(R.id.btn_typetwo)
 
+        btn_typeone.setOnClickListener(){
+            startActivity(Intent(this, MainActivity2::class.java))
+        }
     }
 }
