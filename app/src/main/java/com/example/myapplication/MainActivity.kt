@@ -13,5 +13,6 @@ class MainActivity : AppCompatActivity() {
         val btn_typeone = findViewById<Button>(R.id.btn_typeone)
         val btn_typetwo = findViewById<Button>(R.id.btn_typetwo)
 
+
     }
 }
