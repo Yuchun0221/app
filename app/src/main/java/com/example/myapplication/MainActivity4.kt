@@ -49,7 +49,7 @@ class MainActivity4 : AppCompatActivity() {
             items.clear()
             showToast("共有${c.count}筆資料")
             for (i in 0 until c.count) {
-                items.add("編號:${c.getString(0)}\n姓名:${c.getString(1)}\n手機:${c.getString(2)}\n地址:${c.getString(3)}\n備註:${c.getString(4)}")
+                items.add("項目:${c.getString(0)}\n金額:${c.getString(1)}\n")
                 //移動到下一張
                 c.moveToNext()
             }
@@ -58,6 +58,26 @@ class MainActivity4 : AppCompatActivity() {
             //關閉Cursor
             c.close()
         }
+        btn_commit2.setOnClickListener {
+            //編號、姓名、手機是否為空
+            if (ed_pay.length()<1 || ed_itemName.length()<1 )
+                showToast("請輸入必要欄位")
+            else
+                try {
+                    //新增一筆資料進入Phone資料表
+                    dbrw.execSQL("INSERT INTO Phone(id, name, phone, address, note) VALUES(?,?,?,?,?)",
+                        arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
+                    showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
+                    cleanEditText()
+                } catch (e: Exception) {
+                    showToast("新增失敗:$e")
+                }
+        }
 
-    }
+    } private fun showToast(text: String) =
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+}
+
+
+
 }
