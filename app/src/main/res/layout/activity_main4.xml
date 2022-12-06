@@ -51,22 +51,44 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="616dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="73dp"
         android:scrollbarSize="20dp"
         android:text="剩餘金額"
-        android:textSize="30sp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_commit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="126dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="124dp"
         android:text="確認輸入"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_pay"></Button>
+
+    <Button
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="124dp"
+        android:text="查看列表"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/btn_commit2"
+        app:layout_constraintTop_toBottomOf="@+id/ed_pay" />
+
+    <Button
+        android:id="@+id/btn_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="125dp"
+        android:text="結算"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/btn_query"
+        app:layout_constraintTop_toBottomOf="@+id/ed_pay" />
 </androidx.constraintlayout.widget.ConstraintLayout>
