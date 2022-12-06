@@ -16,5 +16,6 @@ class MainActivity4 : AppCompatActivity() {
         val textView3 = findViewById<TextView>(R.id.textView3)
         val textView4 = findViewById<TextView>(R.id.textView4)
         val btn_commit2 = findViewById<Button>(R.id.btn_commit2)
+
     }
 }
