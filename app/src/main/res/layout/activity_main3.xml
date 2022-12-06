@@ -16,6 +16,7 @@
         android:scrollbarSize="20dp"
         android:text="建議金額"
         android:textSize="30sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
         android:layout_marginTop="51dp"
         android:ems="10"
         android:hint="請輸入人數"
+        android:textColorHint="@color/black"
         android:inputType="number"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +55,7 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="請輸入金額"
+        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_peoplenum"
         tools:ignore="SpeakableTextPresentCheck" />

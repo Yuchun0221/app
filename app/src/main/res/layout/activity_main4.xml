@@ -17,6 +17,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="品項名稱"
+        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,6 +31,7 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:hint="請輸入消費金額"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -41,6 +43,7 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="31dp"
         android:text="請輸入金額"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_itemName" />
 
@@ -53,6 +56,7 @@
         android:scrollbarSize="20dp"
         android:text="剩餘金額"
         android:textSize="30sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
