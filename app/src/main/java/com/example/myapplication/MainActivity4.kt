@@ -65,10 +65,9 @@ class MainActivity4 : AppCompatActivity() {
             else
                 try {
                     //新增一筆資料進入Phone資料表
-                    dbrw.execSQL("INSERT INTO Phone(id, name, phone, address, note) VALUES(?,?,?,?,?)",
+                    dbrw.execSQL("INSERT INTO travel(Pay, IteamName) VALUES(?,?)",
                         arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
                     showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
-                    cleanEditText()
                 } catch (e: Exception) {
                     showToast("新增失敗:$e")
                 }
