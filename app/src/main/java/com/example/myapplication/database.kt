@@ -11,7 +11,7 @@ class MySQLiteOpenHelper (context: Context): SQLiteOpenHelper(context, name, nul
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE travel(Pay text NOT NULL, IteamName text NOT NULL)")
+        db.execSQL("CREATE TABLE Travel(Pay text NOT NULL, IteamName text NOT NULL)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

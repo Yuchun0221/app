@@ -41,8 +41,8 @@ class MainActivity4 : AppCompatActivity() {
 
         btn_query.setOnClickListener {
             val c = dbrw.rawQuery(
-                if (ed_pay.length()<1) "SELECT * FROM Phone"
-                else "SELECT * FROM Phone WHERE id LIKE '${ed_pay.text}'", null)
+                if (ed_pay.length()<1) "SELECT * FROM Travel"
+                else "SELECT * FROM Travel WHERE id LIKE '${ed_pay.text}'", null)
             //從第一筆開始輸出
             c.moveToFirst()
             //清空舊資料
@@ -68,6 +68,7 @@ class MainActivity4 : AppCompatActivity() {
                     dbrw.execSQL("INSERT INTO travel(Pay, iteamName) VALUES(?,?)",
                         arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
                     showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
+                    cleanEditText()
                 } catch (e: Exception) {
                     showToast("新增失敗:$e")
                 }
@@ -75,6 +76,14 @@ class MainActivity4 : AppCompatActivity() {
 
     } private fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+    private fun cleanEditText() {
+        val ed_pay = findViewById<EditText>(R.id.ed_pay)
+        val ed_itemName = findViewById<EditText>(R.id.ed_itemName)
+
+        ed_pay.setText("")
+        ed_itemName.setText("")
+
+    }
 }
 
 

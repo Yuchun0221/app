@@ -11,13 +11,15 @@
         android:id="@+id/ed_itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="56dp"
         android:ems="10"
+        android:hint="品項名稱"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="品項名稱"
         android:textColorHint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,13 +27,16 @@
         android:id="@+id/ed_pay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="89dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="請輸入消費金額"
         android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/ed_itemName"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -39,10 +44,23 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="88dp"
         android:text="請輸入金額"
         android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="40dp"
+        android:text="請輸入項目"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,13 +69,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="236dp"
         android:layout_marginBottom="48dp"
         android:scrollbarSize="20dp"
         android:text="剩餘金額"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listView" />
 
     <Button
         android:id="@+id/btn_commit2"
@@ -67,7 +90,7 @@
         android:layout_marginTop="36dp"
         android:text="確認輸入"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_pay"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/ed_pay"/>
 
     <Button
         android:id="@+id/btn_query"
