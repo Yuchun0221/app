@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 
 class MainActivity2 : AppCompatActivity() {
     @SuppressLint("WrongViewCast")
@@ -26,6 +27,13 @@ class MainActivity2 : AppCompatActivity() {
         val radioButton7 = findViewById<RadioButton>(R.id.radioButton7)
 
         btn_commit.setOnClickListener(){
+           when {
+               radioButton1.isChecked && radioButton5.isChecked ->{
+                   Toast.makeText(this, "請輸入人數", Toast.LENGTH_SHORT).show()
+               }
+
+
+           }
             startActivity(Intent(this, MainActivity3::class.java))
         }
     }

@@ -31,6 +31,8 @@ class MainActivity4 : AppCompatActivity() {
         val btn_query = findViewById<Button>(R.id.btn_query)
         val listView = findViewById<ListView>(R.id.listView)
 
+
+        val total = intent.getIntExtra("result",)
         btn_total.setOnClickListener(){
             startActivity(Intent(this,MainActivity5::class.java))
         }
