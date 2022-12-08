@@ -10,6 +10,7 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.*
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.database.sqlite.SQLiteDatabase
 
 class MainActivity4 : AppCompatActivity() {
@@ -85,6 +86,16 @@ class MainActivity4 : AppCompatActivity() {
         ed_pay.setText("")
         ed_itemName.setText("")
 
+    }
+    val textView4 = findViewById<TextView>(R.id.textView4)
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        data?.extras?.let {
+            if (requestCode == 1 && resultCode == Activity.RESULT_OK)
+                textView4.text =
+                    "剩餘金額：${it.getInt("peopleKey")}*${it.getInt("moneyKey")}"
+        }
     }
 }
 

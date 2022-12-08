@@ -1,6 +1,8 @@
 package com.example.myapplication
 
 import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.app.appsearch.AppSearchResult.RESULT_OK
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -35,8 +37,9 @@ class MainActivity3 : AppCompatActivity() {
                 intent.putExtras(bundle)
                 setResult(Activity.RESULT_OK, intent)
                 finish()
+                startActivity(Intent(this, MainActivity4::class.java))
             }
-            startActivity(Intent(this, MainActivity4::class.java))
+
         }
 
     }
