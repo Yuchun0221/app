@@ -29,7 +29,13 @@ class MainActivity2 : AppCompatActivity() {
         btn_commit.setOnClickListener(){
            when {
                radioButton1.isChecked && radioButton5.isChecked ->{
-                   Toast.makeText(this, "請輸入人數", Toast.LENGTH_SHORT).show()
+                   Toast.makeText(this, "建議每人600元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton1.isChecked && radioButton6.isChecked ->{
+                   Toast.makeText(this, "建議每人3000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton1.isChecked && radioButton7.isChecked ->{
+                   Toast.makeText(this, "建議每人5000元", Toast.LENGTH_SHORT).show()
                }
 
 
