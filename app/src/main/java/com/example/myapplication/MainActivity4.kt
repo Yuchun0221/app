@@ -89,12 +89,13 @@ class MainActivity4 : AppCompatActivity() {
     }
     val textView4 = findViewById<TextView>(R.id.textView4)
 
+    @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         data?.extras?.let {
             if (requestCode == 1 && resultCode == Activity.RESULT_OK)
                 textView4.text =
-                    "剩餘金額：${it.getString("peopleKey")} ${it.getString("moneyKey")}"
+                    "剩餘金額：${it.getString("people")} }"
         }
     }
 }

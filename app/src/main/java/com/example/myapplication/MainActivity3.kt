@@ -28,9 +28,16 @@ class MainActivity3 : AppCompatActivity() {
             if (ed_peoplenum.length() < 1)
                 Toast.makeText(this, "請輸入人數", Toast.LENGTH_SHORT).show()
             else {
-            startActivity(Intent(this, MainActivity4::class.java))
+                var bundle = Bundle()
+                bundle.putString("people",ed_peoplenum.text.toString())
+                val intent = Intent()
+                intent.putExtras(bundle)
+                setResult(Activity.RESULT_OK, intent)
+                finish()
             }
+            startActivity(Intent(this, MainActivity4::class.java))
         }
+
 
     }
 

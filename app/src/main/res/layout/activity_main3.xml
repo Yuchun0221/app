@@ -7,32 +7,19 @@
     tools:context=".MainActivity3"
     android:background="@drawable/image0">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="85dp"
-        android:scrollbarSize="20dp"
-        android:text="建議金額"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/ed_peoplenum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="246dp"
+        android:layout_height="72dp"
         android:layout_marginStart="90dp"
-        android:layout_marginTop="51dp"
-        android:ems="10"
+        android:layout_marginTop="152dp"
+        android:ems="30"
         android:hint="請輸入人數"
-        android:textColorHint="@color/black"
         android:inputType="number"
         android:minHeight="48dp"
+        android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
@@ -47,14 +34,14 @@
 
     <EditText
         android:id="@+id/ed_moneynum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="259dp"
+        android:layout_height="67dp"
         android:layout_marginStart="90dp"
         android:layout_marginTop="50dp"
         android:ems="10"
+        android:hint="請輸入金額"
         android:inputType="number"
         android:minHeight="48dp"
-        android:hint="請輸入金額"
         android:textColorHint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_peoplenum"
