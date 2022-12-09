@@ -95,7 +95,7 @@ class MainActivity4 : AppCompatActivity() {
         data?.extras?.let {
             if (requestCode == 1 && resultCode == Activity.RESULT_OK)
                 textView4.text =
-                    "剩餘金額：${it.getString("people")} }"
+                    "剩餘金額：${it.getString("people")} "
         }
     }
 }
