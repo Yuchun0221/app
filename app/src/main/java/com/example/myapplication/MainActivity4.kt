@@ -89,10 +89,14 @@ class MainActivity4 : AppCompatActivity() {
         }
 
         btn_total.setOnClickListener(){
-             val j = Intent(this, MainActivity5::class.java)
-             j.putExtra("overnum", overnum)
-             j.putExtra("poeple", peoplenum)
-             startActivity(j)
+            if (ed_pay.length()!=0)
+                showToast("請輸入")
+            else{
+                val j = Intent(this, MainActivity5::class.java)
+                j.putExtra("overnum", overnum)
+                j.putExtra("poeple", peoplenum)
+                startActivity(j)
+            }
         }
 
     } private fun showToast(text: String) =
