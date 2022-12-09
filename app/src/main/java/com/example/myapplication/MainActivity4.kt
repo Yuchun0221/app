@@ -27,6 +27,7 @@ class MainActivity4 : AppCompatActivity() {
         val ed_pay = findViewById<EditText>(R.id.ed_pay)
         val textView3 = findViewById<TextView>(R.id.textView3)
         val textView4 = findViewById<TextView>(R.id.textView4)
+        val textView5 = findViewById<TextView>(R.id.textView5)
         val btn_commit2 = findViewById<Button>(R.id.btn_commit2)
         val btn_total = findViewById<Button>(R.id.btn_total)
         val btn_query = findViewById<Button>(R.id.btn_query)
@@ -35,7 +36,7 @@ class MainActivity4 : AppCompatActivity() {
         var money = intent.getStringExtra("money")
         var peoplenum = Integer.parseInt(people)
         var moneynum = Integer.parseInt(money)
-        textView4.text = "剩餘金額：${peoplenum*moneynum } "
+        textView4.text = "可用金額：${peoplenum*moneynum } "
 
 
         btn_total.setOnClickListener(){
@@ -65,6 +66,9 @@ class MainActivity4 : AppCompatActivity() {
             //關閉Cursor
             c.close()
         }
+        var paynum = 0
+        var overnum = 0
+
         btn_commit2.setOnClickListener {
             if (ed_pay.length()<1 || ed_itemName.length()<1 )
                 showToast("請輸入必要欄位")
@@ -73,6 +77,9 @@ class MainActivity4 : AppCompatActivity() {
                     dbrw.execSQL("INSERT INTO travel(Pay, iteamName) VALUES(?,?)",
                         arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
                     showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
+                    paynum = Integer.parseInt(ed_pay.text.toString())
+                    overnum = peoplenum*moneynum- paynum
+                    textView5.text = "剩餘金額${overnum}"
                     cleanEditText()
 
                 } catch (e: Exception) {
@@ -80,6 +87,7 @@ class MainActivity4 : AppCompatActivity() {
                 }
 
         }
+
 
     } private fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
