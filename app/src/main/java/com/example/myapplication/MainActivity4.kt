@@ -32,7 +32,7 @@ class MainActivity4 : AppCompatActivity() {
         val btn_total = findViewById<Button>(R.id.btn_total)
         val btn_query = findViewById<Button>(R.id.btn_query)
         val listView = findViewById<ListView>(R.id.listView)
-        var  people = intent.getStringExtra("people")
+        var people = intent.getStringExtra("people")
         var money = intent.getStringExtra("money")
         var peoplenum = Integer.parseInt(people)
         var moneynum = Integer.parseInt(money)
@@ -40,9 +40,7 @@ class MainActivity4 : AppCompatActivity() {
         textView4.text = "可用金額：${total } "
 
 
-        btn_total.setOnClickListener(){
-            startActivity(Intent(this,MainActivity5::class.java))
-        }
+
         adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, items)
         listView.adapter = adapter
         //取得資料庫實體
@@ -90,6 +88,12 @@ class MainActivity4 : AppCompatActivity() {
 
         }
 
+        btn_total.setOnClickListener(){
+             val j = Intent(this, MainActivity5::class.java)
+             j.putExtra("overnum", overnum)
+             j.putExtra("poeple", peoplenum)
+             startActivity(j)
+        }
 
     } private fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
