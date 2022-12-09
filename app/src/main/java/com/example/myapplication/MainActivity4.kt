@@ -36,7 +36,8 @@ class MainActivity4 : AppCompatActivity() {
         var money = intent.getStringExtra("money")
         var peoplenum = Integer.parseInt(people)
         var moneynum = Integer.parseInt(money)
-        textView4.text = "可用金額：${peoplenum*moneynum } "
+        var total = peoplenum*moneynum
+        textView4.text = "可用金額：${total } "
 
 
         btn_total.setOnClickListener(){
@@ -78,8 +79,9 @@ class MainActivity4 : AppCompatActivity() {
                         arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
                     showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
                     paynum = Integer.parseInt(ed_pay.text.toString())
-                    overnum = peoplenum*moneynum- paynum
-                    textView5.text = "剩餘金額${overnum}"
+                    overnum = total-paynum
+                    total = total-paynum
+                    textView5.text = "剩餘金額: ${overnum}"
                     cleanEditText()
 
                 } catch (e: Exception) {
