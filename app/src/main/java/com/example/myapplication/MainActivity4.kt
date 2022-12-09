@@ -31,9 +31,14 @@ class MainActivity4 : AppCompatActivity() {
         val btn_total = findViewById<Button>(R.id.btn_total)
         val btn_query = findViewById<Button>(R.id.btn_query)
         val listView = findViewById<ListView>(R.id.listView)
+        var  people = intent.getStringExtra("people")
+        var money = intent.getStringExtra("money")
+        var peoplenum = Integer.parseInt(people)
+        var moneynum = Integer.parseInt(money)
+        textView4.text = "剩餘金額：${peoplenum*moneynum } "
 
-
-
+        var paynum = Integer.parseInt(ed_pay.text.toString())
+        textView4.text = "剩餘金額：${peoplenum*moneynum-paynum} "
         btn_total.setOnClickListener(){
             startActivity(Intent(this,MainActivity5::class.java))
         }
@@ -52,7 +57,7 @@ class MainActivity4 : AppCompatActivity() {
             items.clear()
             showToast("共有${c.count}筆資料")
             for (i in 0 until c.count) {
-                items.add("項目:${c.getString(0)}\n金額:${c.getString(1)}\n")
+                items.add("項目:${c.getString(1)}\n金額:${c.getString(0)}\n")
                 //移動到下一張
                 c.moveToNext()
             }
@@ -62,19 +67,19 @@ class MainActivity4 : AppCompatActivity() {
             c.close()
         }
         btn_commit2.setOnClickListener {
-            //編號、姓名、手機是否為空
             if (ed_pay.length()<1 || ed_itemName.length()<1 )
                 showToast("請輸入必要欄位")
             else
                 try {
-                    //新增一筆資料進入Phone資料表
                     dbrw.execSQL("INSERT INTO travel(Pay, iteamName) VALUES(?,?)",
                         arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
                     showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
                     cleanEditText()
+
                 } catch (e: Exception) {
                     showToast("新增失敗:$e")
                 }
+
         }
 
     } private fun showToast(text: String) =
@@ -87,17 +92,9 @@ class MainActivity4 : AppCompatActivity() {
         ed_itemName.setText("")
 
     }
-    val textView4 = findViewById<TextView>(R.id.textView4)
 
-    @Suppress("DEPRECATION")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        data?.extras?.let {
-            if (requestCode == 1 && resultCode == Activity.RESULT_OK)
-                textView4.text =
-                    "剩餘金額：${it.getString("people")} "
-        }
-    }
+
+
 }
 
 

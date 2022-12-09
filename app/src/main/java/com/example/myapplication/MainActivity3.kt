@@ -18,7 +18,7 @@ class MainActivity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
-        val textView2 = findViewById<TextView>(R.id.textView2)
+
         val ed_peoplenum = findViewById<EditText>(R.id.ed_peoplenum)
         val btn_commit1 = findViewById<Button>(R.id.btn_commit1)
         val ed_moneynum = findViewById<EditText>(R.id.ed_moneynum)
@@ -28,14 +28,12 @@ class MainActivity3 : AppCompatActivity() {
             if (ed_peoplenum.length() < 1)
                 Toast.makeText(this, "請輸入人數", Toast.LENGTH_SHORT).show()
             else {
-                var bundle = Bundle()
-                bundle.putString("people",ed_peoplenum.text.toString())
-                val intent = Intent()
-                intent.putExtras(bundle)
-                setResult(Activity.RESULT_OK, intent)
-                finish()
+                val i = Intent(this, MainActivity4::class.java)
+                i.putExtra("people", ed_peoplenum.text.toString())
+                i.putExtra("money",ed_moneynum.text.toString())
+                startActivity(i)
             }
-            startActivity(Intent(this, MainActivity4::class.java))
+
         }
 
 
