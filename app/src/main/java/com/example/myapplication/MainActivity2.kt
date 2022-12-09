@@ -37,6 +37,33 @@ class MainActivity2 : AppCompatActivity() {
                radioButton1.isChecked && radioButton7.isChecked ->{
                    Toast.makeText(this, "建議每人5000元", Toast.LENGTH_SHORT).show()
                }
+               radioButton2.isChecked && radioButton5.isChecked ->{
+                   Toast.makeText(this, "建議每人600元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton2.isChecked && radioButton6.isChecked ->{
+                   Toast.makeText(this, "建議每人3000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton2.isChecked && radioButton7.isChecked ->{
+                   Toast.makeText(this, "建議每人5000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton3.isChecked && radioButton5.isChecked ->{
+                   Toast.makeText(this, "建議每人600元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton3.isChecked && radioButton6.isChecked ->{
+                   Toast.makeText(this, "建議每人3000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton3.isChecked && radioButton7.isChecked ->{
+                   Toast.makeText(this, "建議每人5000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton4.isChecked && radioButton5.isChecked ->{
+                   Toast.makeText(this, "建議每人600元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton4.isChecked && radioButton6.isChecked ->{
+                   Toast.makeText(this, "建議每人3000元", Toast.LENGTH_SHORT).show()
+               }
+               radioButton4.isChecked && radioButton7.isChecked ->{
+                   Toast.makeText(this, "建議每人5000元", Toast.LENGTH_SHORT).show()
+               }
 
 
            }
