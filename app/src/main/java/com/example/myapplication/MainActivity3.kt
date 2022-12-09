@@ -32,6 +32,8 @@ class MainActivity3 : AppCompatActivity() {
                 i.putExtra("people", ed_peoplenum.text.toString())
                 i.putExtra("money",ed_moneynum.text.toString())
                 startActivity(i)
+
+
             }
 
         }

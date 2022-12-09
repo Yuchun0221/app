@@ -37,8 +37,7 @@ class MainActivity4 : AppCompatActivity() {
         var moneynum = Integer.parseInt(money)
         textView4.text = "剩餘金額：${peoplenum*moneynum } "
 
-        var paynum = Integer.parseInt(ed_pay.text.toString())
-        textView4.text = "剩餘金額：${peoplenum*moneynum-paynum} "
+
         btn_total.setOnClickListener(){
             startActivity(Intent(this,MainActivity5::class.java))
         }
