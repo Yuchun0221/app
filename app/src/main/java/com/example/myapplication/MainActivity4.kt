@@ -76,9 +76,9 @@ class MainActivity4 : AppCompatActivity() {
                 showToast("請輸入必要欄位")
             else
                 try {
-                    dbrw.execSQL("INSERT INTO travel(Pay, iteamName) VALUES(?,?)",
-                        arrayOf<Any?>(ed_pay.text.toString(), ed_itemName.text.toString()))
-                    showToast("金額${ed_pay.text} 項目${ed_itemName.text}")
+                    dbrw.execSQL("INSERT INTO travel(id, Pay, iteamName) VALUES(?,?)",
+                        arrayOf<Any?>(ed_id.text.toString(), ed_pay.text.toString(), ed_itemName.text.toString()))
+                    showToast("新增編號${ed_id.text} 金額${ed_pay.text} 項目${ed_itemName.text}")
                     paynum = Integer.parseInt(ed_pay.text.toString())
                     overnum = total-paynum
                     total = total-paynum
