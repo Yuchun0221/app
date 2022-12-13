@@ -22,9 +22,9 @@ class MainActivity5 : AppCompatActivity() {
 
         if (num>0)
             textView1.text = "每人應收回: ${total}"
-        else
+        else {
             textView1.text = "每人應再付: ${total}"
-
+        }
 
         btn_random.setOnClickListener(){
             startActivity(Intent(this,MainActivity6::class.java))
