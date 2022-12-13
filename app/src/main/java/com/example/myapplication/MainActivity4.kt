@@ -120,9 +120,11 @@ class MainActivity4 : AppCompatActivity() {
     private fun cleanEditText() {
         val ed_pay = findViewById<EditText>(R.id.ed_pay)
         val ed_itemName = findViewById<EditText>(R.id.ed_itemName)
+        val ed_id = findViewById<EditText>(R.id.ed_id)
 
         ed_pay.setText("")
         ed_itemName.setText("")
+        ed_id.setText("")
 
     }
 
