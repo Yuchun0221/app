@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="btn">查看列表</string>
+    <string name="textView">請輸入項目</string>
+    <string name="ed">品項名稱</string>
+    <string name="textView1">請輸入金額</string>
+    <string name="textView4">可用金額</string>
+    <string name="textView5">剩餘金額</string>
 </resources>
