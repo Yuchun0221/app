@@ -59,7 +59,7 @@ class MainActivity4 : AppCompatActivity() {
             items.clear()
             showToast("共有${c.count}筆資料")
             for (i in 0 until c.count) {
-                items.add("項目:${c.getString(1)}\n金額:${c.getString(0)}\n")
+                items.add("編號:${c.getString(0)}\n項目:${c.getString(2)}\n金額:${c.getString(1)}\n")
                 //移動到下一張
                 c.moveToNext()
             }
