@@ -91,6 +91,19 @@ class MainActivity4 : AppCompatActivity() {
 
         }
 
+        btn_delete.setOnClickListener {
+            if (ed_id.length()<1)
+                showToast("請輸入編號")
+            else
+                try {
+                    dbrw.execSQL("DELETE FROM Travel WHERE id LIKE '${ed_id.text}'")
+                    showToast("刪除編號${ed_id.text}")
+                    cleanEditText()
+                } catch (e: Exception) {
+                    showToast("刪除失敗:$e")
+                }
+        }
+
         btn_total.setOnClickListener(){
             if (ed_pay.length()!=0)
                 showToast("請輸入")
