@@ -52,7 +52,7 @@ class MainActivity4 : AppCompatActivity() {
         btn_query.setOnClickListener {
             val c = dbrw.rawQuery(
                 if (ed_pay.length()<1) "SELECT * FROM Travel"
-                else "SELECT * FROM Travel WHERE id LIKE '${ed_pay.text}'", null)
+                else "SELECT * FROM Travel WHERE id LIKE '${ed_id.text}'", null)
             //從第一筆開始輸出
             c.moveToFirst()
             //清空舊資料
@@ -68,19 +68,34 @@ class MainActivity4 : AppCompatActivity() {
             //關閉Cursor
             c.close()
         }
-        var paynum = 0
-        var overnum = 0
+
+        var overnum = money
+
+        btn_total.setOnClickListener() {
+            if (ed_pay.length() != 0)
+                showToast("請輸入")
+            else
+                try {
+                    val j = Intent(this, MainActivity5::class.java)
+                    j.putExtra("overnum", 800)
+                    j.putExtra("poeple", 4)
+                    startActivity(j)
+                }catch (e:Exception){
+                    showToast("跳轉失敗:＄e")
+                }
+        }
+
 
         btn_commit2.setOnClickListener {
-            if (ed_pay.length()<1 || ed_itemName.length()<1 )
+            if (ed_id.length()<1 ||ed_pay.length()<1 || ed_itemName.length()<1 )
                 showToast("請輸入必要欄位")
             else
                 try {
-                    dbrw.execSQL("INSERT INTO travel(id, Pay, iteamName) VALUES(?,?,?)",
+                    dbrw.execSQL("INSERT INTO Travel(id, pay, itemName) VALUES(?,?)",
                         arrayOf<Any?>(ed_id.text.toString(), ed_pay.text.toString(), ed_itemName.text.toString()))
-                    showToast("新增編號${ed_id.text} 金額${ed_pay.text} 項目${ed_itemName.text}")
-                    paynum = Integer.parseInt(ed_pay.text.toString())
-                    overnum = total-paynum
+                    showToast("編號${ed_id.text} 金額${ed_pay.text} 項目${ed_itemName.text}")
+                    var paynum = Integer.parseInt(ed_pay.text.toString())
+                    overnum = (total-paynum).toString()
                     total = total-paynum
                     textView5.text = "剩餘金額: ${overnum}"
                     cleanEditText()
@@ -91,7 +106,7 @@ class MainActivity4 : AppCompatActivity() {
 
         }
 
-        btn_delete.setOnClickListener {
+/*        btn_delete.setOnClickListener {
             if (ed_id.length()<1)
                 showToast("請輸入編號")
             else
@@ -102,18 +117,10 @@ class MainActivity4 : AppCompatActivity() {
                 } catch (e: Exception) {
                     showToast("刪除失敗:$e")
                 }
-        }
+        }*/
 
-        btn_total.setOnClickListener(){
-            if (ed_pay.length()!=0)
-                showToast("請輸入")
-            else{
-                val j = Intent(this, MainActivity5::class.java)
-                j.putExtra("overnum", overnum)
-                j.putExtra("poeple", peoplenum)
-                startActivity(j)
-            }
-        }
+
+
 
     } private fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()

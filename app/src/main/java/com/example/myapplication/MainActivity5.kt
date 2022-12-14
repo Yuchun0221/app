@@ -14,20 +14,22 @@ class MainActivity5 : AppCompatActivity() {
 
         var textView1 = findViewById<TextView>(R.id.textView１)
         val btn_random = findViewById<Button>(R.id.btn_random)
-        var money = intent.getStringExtra("overnum")
-        var num = Integer.parseInt(money)
-        var people = intent.getStringExtra("people")
-        var peoplenum = Integer.parseInt(people)
-        var total = num/peoplenum
+        var money = intent.getIntExtra("overnum",0)
+        var people = intent.getIntExtra("people",0)
 
-        if (num>0)
-            textView1.text = "每人應收回: ${total}"
-        else {
-            textView1.text = "每人應再付: ${total}"
-        }
+
+
 
         btn_random.setOnClickListener(){
-            startActivity(Intent(this,MainActivity6::class.java))
+
+            textView1.text = "每人應收回: ${money/people}"
+            //else
+                try {
+                    textView1.text = "每人應再付: ${money/people}"
+                }catch (e:Exception){
+                    Toast.makeText(this, "無法計算", Toast.LENGTH_SHORT).show()
+            }
+            //startActivity(Intent(this,MainActivity6::class.java))
         }
     }
 
