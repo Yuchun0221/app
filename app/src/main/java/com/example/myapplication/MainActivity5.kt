@@ -19,18 +19,20 @@ class MainActivity5 : AppCompatActivity() {
         val btn_count = findViewById<Button>(R.id.btn_count)
         var money = intent.getStringExtra("overnum")
         var people = intent.getStringExtra("people")
+        var pay = intent.getStringExtra("paynum")
         var peoplenum = Integer.parseInt(people)
         var moneynum = Integer.parseInt(money)
+        var paynum = Integer.parseInt(pay)
 
 
 
 
         btn_count.setOnClickListener(){
             if (moneynum>0)
-                textView1.text = "每人應收回: ${moneynum*peoplenum/peoplenum}不可整除${(moneynum)%peoplenum}"
+                textView1.text = "每人應收回: ${((moneynum*peoplenum)-paynum)/peoplenum}不可整除${((moneynum*peoplenum)-paynum)%peoplenum}"
             else
                 try {
-                    textView1.text = "每人應再付: ${moneynum}不可整除${moneynum}"
+                    textView1.text = "每人應再付: ${((moneynum*peoplenum)-paynum)/peoplenum}不可整除${((moneynum*peoplenum)-paynum)%peoplenum}"
                 }catch (e:Exception){
                     Toast.makeText(this, "無法計算", Toast.LENGTH_SHORT).show()
             }

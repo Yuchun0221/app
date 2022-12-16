@@ -89,6 +89,7 @@ class MainActivity4 : AppCompatActivity() {
                     paynum = Integer.parseInt(ed_pay.text.toString())
                     overnum = (total-paynum)
                     total = total-paynum
+                    paynum++.toString()
                     textView5.text = "剩餘金額: ${overnum}"
                     showToast("編號${ed_id.text} ")
                     cleanEditText()
@@ -107,6 +108,7 @@ class MainActivity4 : AppCompatActivity() {
                     val j = Intent(this, MainActivity5::class.java)
                     j.putExtra("overnum", money.toString())
                     j.putExtra("people", people.toString())
+                    j.putExtra("paynum",paynum.toString())
                     startActivity(j)
                 }catch (e:Exception){
                     showToast("跳轉失敗:$e")
