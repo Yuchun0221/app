@@ -13,8 +13,11 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.database.sqlite.SQLiteDatabase
 
+
+
 class MainActivity4 : AppCompatActivity() {
     private lateinit var dbrw: SQLiteDatabase
+
     private var items: ArrayList<String> = ArrayList()
     private lateinit var adapter: ArrayAdapter<String>
 
@@ -49,6 +52,7 @@ class MainActivity4 : AppCompatActivity() {
         //取得資料庫實體
         dbrw = MySQLiteOpenHelper(this).writableDatabase
 
+
         btn_query.setOnClickListener {
             val c = dbrw.rawQuery(
                 if (ed_pay.length()<1) "SELECT * FROM Travel"
@@ -59,7 +63,7 @@ class MainActivity4 : AppCompatActivity() {
             items.clear()
             showToast("共有${c.count}筆資料")
             for (i in 0 until c.count) {
-                items.add("編號:${c.getString(0)}\n項目:${c.getString(2)}\n金額:${c.getString(1)}\n")
+                items.add("編號:${c.getString(0)}\n項目:${c.getString(1)}\n金額:${c.getString(2)}")
                 //移動到下一張
                 c.moveToNext()
             }
@@ -69,7 +73,26 @@ class MainActivity4 : AppCompatActivity() {
             c.close()
         }
 
-        var overnum = money
+        var paynum=0
+
+        btn_commit2.setOnClickListener {
+            if (ed_id.length()<1 )
+                showToast("請輸入必要欄位")
+            else
+                try {
+                    dbrw.execSQL("INSERT INTO Travel(id, itemName, pay) VALUES(?,?,?)",
+                        arrayOf<Any?>(ed_id.text.toString(), ed_itemName.text.toString(), ed_pay.text.toString()))
+                    paynum = Integer.parseInt(ed_pay.text.toString())
+                    var overnum = (total-paynum).toString()
+                    total = total-paynum
+                    textView5.text = "剩餘金額: ${overnum}"
+                    showToast("編號${ed_id.text} ")
+                    cleanEditText()
+                } catch (e: Exception) {
+                    showToast("新增失敗:$e")
+                }
+
+        }
 
         btn_total.setOnClickListener() {
             if (ed_pay.length() != 0)
@@ -77,36 +100,17 @@ class MainActivity4 : AppCompatActivity() {
             else
                 try {
                     val j = Intent(this, MainActivity5::class.java)
-                    j.putExtra("overnum", 800)
-                    j.putExtra("poeple", 4)
+                    j.putExtra("overnum", money.toString())
+                    j.putExtra("poeple", people.toString())
                     startActivity(j)
                 }catch (e:Exception){
-                    showToast("跳轉失敗:＄e")
+                    showToast("跳轉失敗:$e")
                 }
         }
 
 
-        btn_commit2.setOnClickListener {
-            if (ed_id.length()<1 ||ed_pay.length()<1 || ed_itemName.length()<1 )
-                showToast("請輸入必要欄位")
-            else
-                try {
-                    dbrw.execSQL("INSERT INTO Travel(id, pay, itemName) VALUES(?,?)",
-                        arrayOf<Any?>(ed_id.text.toString(), ed_pay.text.toString(), ed_itemName.text.toString()))
-                    showToast("編號${ed_id.text} 金額${ed_pay.text} 項目${ed_itemName.text}")
-                    var paynum = Integer.parseInt(ed_pay.text.toString())
-                    overnum = (total-paynum).toString()
-                    total = total-paynum
-                    textView5.text = "剩餘金額: ${overnum}"
-                    cleanEditText()
 
-                } catch (e: Exception) {
-                    showToast("新增失敗:$e")
-                }
-
-        }
-
-/*        btn_delete.setOnClickListener {
+        btn_delete.setOnClickListener {
             if (ed_id.length()<1)
                 showToast("請輸入編號")
             else
@@ -117,12 +121,13 @@ class MainActivity4 : AppCompatActivity() {
                 } catch (e: Exception) {
                     showToast("刪除失敗:$e")
                 }
-        }*/
+        }
 
 
 
 
-    } private fun showToast(text: String) =
+    }
+    private fun showToast(text: String) =
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     private fun cleanEditText() {
         val ed_pay = findViewById<EditText>(R.id.ed_pay)
@@ -135,9 +140,8 @@ class MainActivity4 : AppCompatActivity() {
 
     }
 
-
-
 }
+
 
 
 
