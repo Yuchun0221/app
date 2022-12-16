@@ -44,7 +44,6 @@ class MainActivity4 : AppCompatActivity() {
         var moneynum = Integer.parseInt(money)
         var total = peoplenum*moneynum
         var paynum=0
-        var total1 = (total-paynum).toString()
         textView4.text = "可用金額：${total } "
 
 
@@ -78,6 +77,7 @@ class MainActivity4 : AppCompatActivity() {
 
 
         var overnum=0
+        var num=0
 
         btn_commit2.setOnClickListener {
             if (ed_id.length()<1 )
@@ -89,7 +89,8 @@ class MainActivity4 : AppCompatActivity() {
                     paynum = Integer.parseInt(ed_pay.text.toString())
                     overnum = (total-paynum)
                     total = total-paynum
-                    paynum++.toString()
+                    paynum=num+paynum
+                    num = paynum
                     textView5.text = "剩餘金額: ${overnum}"
                     showToast("編號${ed_id.text} ")
                     cleanEditText()
