@@ -24,12 +24,13 @@ class MainActivity5 : AppCompatActivity() {
 
 
 
+
         btn_count.setOnClickListener(){
             if (moneynum>0)
-                textView1.text = "每人應收回: ${moneynum/peoplenum}不可整除${moneynum%peoplenum}"
+                textView1.text = "每人應收回: ${moneynum*peoplenum/peoplenum}不可整除${(moneynum)%peoplenum}"
             else
                 try {
-                    textView1.text = "每人應再付: ${moneynum/peoplenum}不可整除${moneynum%peoplenum}"
+                    textView1.text = "每人應再付: ${moneynum}不可整除${moneynum}"
                 }catch (e:Exception){
                     Toast.makeText(this, "無法計算", Toast.LENGTH_SHORT).show()
             }

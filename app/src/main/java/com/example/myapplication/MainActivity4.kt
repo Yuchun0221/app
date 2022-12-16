@@ -43,6 +43,8 @@ class MainActivity4 : AppCompatActivity() {
         var peoplenum = Integer.parseInt(people)
         var moneynum = Integer.parseInt(money)
         var total = peoplenum*moneynum
+        var paynum=0
+        var total1 = (total-paynum).toString()
         textView4.text = "可用金額：${total } "
 
 
@@ -73,7 +75,9 @@ class MainActivity4 : AppCompatActivity() {
             c.close()
         }
 
-        var paynum=0
+
+
+        var overnum=0
 
         btn_commit2.setOnClickListener {
             if (ed_id.length()<1 )
@@ -83,7 +87,7 @@ class MainActivity4 : AppCompatActivity() {
                     dbrw.execSQL("INSERT INTO Travel(id, itemName, pay) VALUES(?,?,?)",
                         arrayOf<Any?>(ed_id.text.toString(), ed_itemName.text.toString(), ed_pay.text.toString()))
                     paynum = Integer.parseInt(ed_pay.text.toString())
-                    var overnum = (total-paynum).toString()
+                    overnum = (total-paynum)
                     total = total-paynum
                     textView5.text = "剩餘金額: ${overnum}"
                     showToast("編號${ed_id.text} ")
@@ -94,6 +98,7 @@ class MainActivity4 : AppCompatActivity() {
 
         }
 
+
         btn_total.setOnClickListener() {
             if (ed_pay.length() != 0)
                 showToast("請輸入")
@@ -101,7 +106,7 @@ class MainActivity4 : AppCompatActivity() {
                 try {
                     val j = Intent(this, MainActivity5::class.java)
                     j.putExtra("overnum", money.toString())
-                    j.putExtra("poeple", people.toString())
+                    j.putExtra("people", people.toString())
                     startActivity(j)
                 }catch (e:Exception){
                     showToast("跳轉失敗:$e")
@@ -122,8 +127,6 @@ class MainActivity4 : AppCompatActivity() {
                     showToast("刪除失敗:$e")
                 }
         }
-
-
 
 
     }
